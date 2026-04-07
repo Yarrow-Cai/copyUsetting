@@ -1,0 +1,10 @@
+[
+    {
+        "src": "C:/Windows/System32/drivers/etc/hosts",
+        "dst": "./backup/hosts_backup"
+    },
+    {
+        "src": "C:/Windows/win.ini",
+        "dst": "./backup/win_ini_backup"
+    }
+]

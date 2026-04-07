@@ -1,0 +1,17 @@
+[
+  {"tool": "claude_code", "src": "%USERPROFILE%/.claude/settings.json", "dst": "claude_code/settings.json"},
+  {"tool": "claude_code", "src": "%USERPROFILE%/.claude/settings.local.json", "dst": "claude_code/settings.local.json"},
+  {"tool": "claude_code", "src": "%USERPROFILE%/.claude/CLAUDE.md", "dst": "claude_code/CLAUDE.md"},
+
+  {"tool": "codex", "src": "%USERPROFILE%/.codex/config.toml", "dst": "codex/config.toml"},
+
+  {"tool": "zed", "src": "%APPDATA%/Zed/settings.json", "dst": "zed/settings.json"},
+  {"tool": "zed", "src": "%APPDATA%/Zed/keymap.json", "dst": "zed/keymap.json"},
+  {"tool": "zed", "src": "%APPDATA%/Zed/tasks.json", "dst": "zed/tasks.json"},
+  {"tool": "zed", "src": "%APPDATA%/Zed/debug.json", "dst": "zed/debug.json"},
+
+  {"tool": "cliproxyapi", "src": "%USERPROFILE%/cliproxyapi/config.yaml", "dst": "cliproxyapi/config.yaml"},
+
+  {"tool": "opencode", "src": "%APPDATA%/ai.opencode.desktop/opencode.settings.dat", "dst": "opencode/opencode.settings.dat"},
+  {"tool": "opencode", "src": "%APPDATA%/ai.opencode.desktop/opencode.global.dat", "dst": "opencode/opencode.global.dat"}
+]

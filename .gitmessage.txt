@@ -1,0 +1,14 @@
+feat: initialize devtools backup tool
+
+- add GUI backup/restore tool for common AI dev tools
+- add portable backup config using environment variables
+- add Windows EXE build script
+- add ignore rules for generated build artifacts
+
+# 使用方法：
+#   git commit -t .gitmessage.txt
+#
+# 如果你想改成更中性的首提，也可改成：
+#   chore: initialize repository
+#
+# 提交前可按需要修改上面的标题和要点。
