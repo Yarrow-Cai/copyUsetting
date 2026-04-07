@@ -27,7 +27,14 @@ if exist DevToolsBackup.spec del /f /q DevToolsBackup.spec
 
 echo [Step 3/3] Building EXE...
 set CONFIG_FILE=backup_config.example.json
-if exist backup_config.json set CONFIG_FILE=backup_config.json
+if /I "%~1"=="--local-config" (
+    if exist backup_config.json (
+        set CONFIG_FILE=backup_config.json
+    ) else (
+        echo [WARN] backup_config.json not found, fallback to backup_config.example.json
+    )
+)
+echo Using config file: %CONFIG_FILE%
 python -m PyInstaller --noconfirm --clean --onefile --windowed --name "DevToolsBackup" --add-data "%CONFIG_FILE%;." backup_tool.py
 
 if errorlevel 1 (
