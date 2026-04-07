@@ -22,24 +22,39 @@ TOOL_LABELS = {
     "zed": "Zed",
     "cliproxyapi": "CLIProxyAPI",
     "opencode": "OpenCode",
+    "kimi": "Kimi",
+    "copyusersetting": "copyUSetting",
 }
 
 
+def app_root() -> Path:
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent
+
+
 def resource_path(relative_path: str) -> Path:
-    base_path = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent))
+    base_path = Path(getattr(sys, "_MEIPASS", app_root()))
     return base_path / relative_path
 
 
 def find_config_path() -> Path:
     for candidate in (USER_CONFIG_FILE, DEFAULT_CONFIG_FILE):
-        config_path = resource_path(candidate)
-        if config_path.exists():
-            return config_path
-    return resource_path(USER_CONFIG_FILE)
+        for config_path in (app_root() / candidate, resource_path(candidate)):
+            if config_path.exists():
+                return config_path
+    return app_root() / USER_CONFIG_FILE
 
 
 def expand_path(raw_path: str) -> str:
-    return os.path.normpath(os.path.expanduser(os.path.expandvars(raw_path)))
+    expanded = raw_path
+    custom_vars = {
+        "%APP_ROOT%": str(app_root()),
+        "%COPYUSETTING_ROOT%": str(app_root()),
+    }
+    for placeholder, actual in custom_vars.items():
+        expanded = expanded.replace(placeholder, actual)
+    return os.path.normpath(os.path.expanduser(os.path.expandvars(expanded)))
 
 
 def default_backup_dir() -> str:
@@ -100,7 +115,7 @@ class BackupTool:
         top = ttk.Frame(self.root, padding=10)
         top.pack(fill="x")
         ttk.Label(top, text="开发工具配置备份工具", font=("微软雅黑", 16, "bold")).pack(anchor="center")
-        ttk.Label(top, text="备份/恢复 Claude Code、Codex、Zed、CLIProxyAPI、OpenCode 配置", foreground="#666666").pack(anchor="center", pady=(4, 0))
+        ttk.Label(top, text="备份/恢复 Claude Code、Codex、Zed、CLIProxyAPI、OpenCode、Kimi、copyUSetting 配置", foreground="#666666").pack(anchor="center", pady=(4, 0))
 
         main = ttk.Frame(self.root, padding=(10, 0, 10, 10))
         main.pack(fill="both", expand=True)

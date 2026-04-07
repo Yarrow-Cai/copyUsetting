@@ -13,5 +13,12 @@
   {"tool": "cliproxyapi", "src": "%USERPROFILE%/cliproxyapi/config.yaml", "dst": "cliproxyapi/config.yaml"},
 
   {"tool": "opencode", "src": "%APPDATA%/ai.opencode.desktop/opencode.settings.dat", "dst": "opencode/opencode.settings.dat"},
-  {"tool": "opencode", "src": "%APPDATA%/ai.opencode.desktop/opencode.global.dat", "dst": "opencode/opencode.global.dat"}
+  {"tool": "opencode", "src": "%APPDATA%/ai.opencode.desktop/opencode.global.dat", "dst": "opencode/opencode.global.dat"},
+
+  {"tool": "kimi", "src": "%USERPROFILE%/.kimi/config.toml", "dst": "kimi/config.toml"},
+  {"tool": "kimi", "src": "%USERPROFILE%/.kimi/config.toml.backup", "dst": "kimi/config.toml.backup"},
+  {"tool": "kimi", "src": "%USERPROFILE%/.kimi/kimi.json", "dst": "kimi/kimi.json"},
+  {"tool": "kimi", "src": "%USERPROFILE%/.kimi/mcp.json", "dst": "kimi/mcp.json"},
+
+  {"tool": "copyusersetting", "src": "%APP_ROOT%/backup_config.json", "dst": "copyusersetting/backup_config.json"}
 ]

@@ -78,6 +78,10 @@ copy backup_config.example.json backup_config.json
 
 程序会优先加载本地 `backup_config.json`；如果不存在，则自动回退到仓库内的 `backup_config.example.json`。
 
+当前示例模板已包含 Claude Code、Codex、Zed、CLIProxyAPI、OpenCode、Kimi 以及 `copyUSetting` 自身配置的备份项。
+
+其中 `copyUSetting` 配置支持使用 `%APP_ROOT%`（或 `%COPYUSETTING_ROOT%`）指向当前程序所在目录，用于备份同目录下的 `backup_config.json`。
+
 ## 示例
 
 ### 复制Windows系统文件到备份目录
